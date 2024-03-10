@@ -1,7 +1,7 @@
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
-async function openPageWithTor() {
+(async function openPageWithTor() {
     let options = new chrome.Options();
     // Configurez Chrome pour utiliser le proxy Tor
     options.addArguments('--proxy-server=socks5://127.0.0.1:9050');
@@ -38,14 +38,9 @@ async function openPageWithTor() {
         // }
         } catch(error) {
             console.log(error);  
-            await driver.sleep(2000);
-            // await driver.quit();   
-
         } finally {
-            await driver.sleep(2000);
-            await driver.quit();   
+            await drive.sleep(2000);
+            // await driver.quit();   
         }
     })();
-};
-
-module.exports = openPageWithTor;
+})();
