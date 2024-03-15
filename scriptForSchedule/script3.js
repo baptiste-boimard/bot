@@ -1,5 +1,5 @@
 const schedule = require('node-schedule');
-const openPageWithTor = require('./chrome')
+const openPageWithTor = require('../chrome')
 
 // Planifier une tâche pour s'exécuter à une heure spécifique
 const job = schedule.scheduleJob({hour: 16, minute: 34}, function(){
