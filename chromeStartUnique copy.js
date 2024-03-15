@@ -5,7 +5,7 @@ const chrome = require('selenium-webdriver/chrome');
 
 let options = new chrome.Options();
 // Remplacez 9050 par le port SOCKS de votre instance Tor si différent
-options.addArguments('--proxy-server=socks5://127.0.0.1:9150');
+options.addArguments('--proxy-server=socks5://127.0.0.1:9050');
 
 (async function openPageWithTor() {
 

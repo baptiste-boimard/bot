@@ -10,7 +10,7 @@ async function openPageWithTor() {
 
     (async function toggleCheckbox() {
         let driver = await new Builder().forBrowser('chrome').setChromeOptions(
-
+            options
             // options.addArguments('--headless=new'),
             ).build();
     
