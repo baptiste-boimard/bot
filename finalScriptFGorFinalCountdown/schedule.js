@@ -5,14 +5,14 @@ const time = require('./time')
 
 
 let newTimeScheduleParams ="";
-const scheduleParams = {hour: 17, minute: 6, second: 35};
+const scheduleParams = {hour: 21, minute: 12, second: 35};
 
 function scheduleFunction() {
   return new Promise((resolve, reject) => {
     
     const job = schedule.scheduleJob(scheduleParams, async function(){
       console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-      const finish = await botByProton(serversArray.array1, 33459)
+      const finish = await botByProton(serversArray.array10, 3459)
         .then((finish)=> {
           console.log(`Nbr de votes = ${finish} / Job terminé`);
           return time.addSecondsToCurrentTime(10);
@@ -20,7 +20,7 @@ function scheduleFunction() {
         .then((scheduleParams)=> {
           const job = schedule.scheduleJob(scheduleParams, async function(){
             console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-            const finish = await botByProton(serversArray.array2, 42987)
+            const finish = await botByProton(serversArray.array11, 12987)
               .then((finish)=> {
                 console.log(`Nbr de votes = ${finish} / Job terminé`);
                 return time.addSecondsToCurrentTime(60);
@@ -28,7 +28,7 @@ function scheduleFunction() {
               .then((scheduleParams)=> {
                 const job = schedule.scheduleJob(scheduleParams, async function(){
                   console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-                  const finish = await botByProton(serversArray.array3, 37453)
+                  const finish = await botByProton(serversArray.array12, 27453)
                     .then((finish)=> {
                       console.log(`Nbr de votes = ${finish} / Job terminé`);
                       return time.addSecondsToCurrentTime(60);
@@ -36,7 +36,7 @@ function scheduleFunction() {
                     .then((scheduleParams)=> {
                       const job = schedule.scheduleJob(scheduleParams, async function(){
                         console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-                        const finish = await botByProton(serversArray.array4, 49148)
+                        const finish = await botByProton(serversArray.array13, 19148)
                           .then((finish)=> {
                             console.log(`Nbr de votes = ${finish} / Job terminé`);
                             return time.addSecondsToCurrentTime(60);

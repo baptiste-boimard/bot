@@ -5,49 +5,49 @@ const time = require('./time')
 
 
 let newTimeScheduleParams ="";
-const scheduleParams = {hour: 17, minute: 4, second: 30};
+const scheduleParams = {hour: 7, minute: 55, second:0};
 
 function scheduleFunction() {
   return new Promise((resolve, reject) => {
     
     const job = schedule.scheduleJob(scheduleParams, async function(){
       console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-      const finish = await botByProton(serversArray.array5, 27458)
+      const finish = await botByProton(serversArray.array50, 3)
         .then((finish)=> {
           console.log(`Nbr de votes = ${finish} / Job terminé`);
-          return time.addSecondsToCurrentTime(10);
+          return time.addSecondsToCurrentTime(60);
         })
-        .then((scheduleParams)=> {
-          const job = schedule.scheduleJob(scheduleParams, async function(){
-            console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-            const finish = await botByProton(serversArray.array6, 25632)
-              .then((finish)=> {
-                console.log(`Nbr de votes = ${finish} / Job terminé`);
-                return time.addSecondsToCurrentTime(60);
-              })
-              .then((scheduleParams)=> {
-                const job = schedule.scheduleJob(scheduleParams, async function(){
-                  console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-                  const finish = await botByProton(serversArray.array7, 31250)
-                    .then((finish)=> {
-                      console.log(`Nbr de votes = ${finish} / Job terminé`);
-                      return time.addSecondsToCurrentTime(60);
-                    })
-                    .then((scheduleParams)=> {
-                      const job = schedule.scheduleJob(scheduleParams, async function(){
-                        console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-                        const finish = await botByProton(serversArray.array1, 35125)
-                          .then((finish)=> {
-                            console.log(`Nbr de votes = ${finish} / Job terminé`);
-                            return time.addSecondsToCurrentTime(60);
-                          })
+        // .then((scheduleParams)=> {
+        //   const job = schedule.scheduleJob(scheduleParams, async function(){
+        //     console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
+        //     const finish = await botByProton(serversArray.array53, 3)
+        //       .then((finish)=> {
+        //         console.log(`Nbr de votes = ${finish} / Job terminé`);
+        //         return time.addSecondsToCurrentTime(60);
+        //       })
+        //       // .then((scheduleParams)=> {
+        //       //   const job = schedule.scheduleJob(scheduleParams, async function(){
+        //       //     console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
+        //       //     const finish = await botByProton(serversArray.array7, 31250)
+        //       //       .then((finish)=> {
+        //       //         console.log(`Nbr de votes = ${finish} / Job terminé`);
+        //       //         return time.addSecondsToCurrentTime(60);
+        //       //       })
+        //       //       .then((scheduleParams)=> {
+        //       //         const job = schedule.scheduleJob(scheduleParams, async function(){
+        //       //           console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
+        //       //           const finish = await botByProton(serversArray.array1, 35125)
+        //       //             .then((finish)=> {
+        //       //               console.log(`Nbr de votes = ${finish} / Job terminé`);
+        //       //               return time.addSecondsToCurrentTime(60);
+        //       //             })
                           
-                      });
-                    })
-                });
-              })
-            });
-        })
+        //       //         });
+        //       //       })
+        //       //   });
+        //       // })
+        //     });
+        // })
         // .then((scheduleParams)=> {
         //   const job = schedule.scheduleJob(scheduleParams, async function(){
         //     console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);

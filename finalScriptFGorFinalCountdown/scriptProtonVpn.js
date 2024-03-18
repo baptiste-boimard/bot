@@ -18,13 +18,25 @@ async function executeCommand(command) {
 };
 
 // Fonction de delay asynchrone entre chaque vote
-function delay(ms) {
-  console.log(`Délai d'attente de ${ms}ms entre 2 votes`);
-  return new Promise(resolve => setTimeout(resolve, (ms)))
+function delay(totalDuration, serversArray) {
+
+  let totalTimeMs = totalDuration * 60 * 60 * 1000; // convertir 8 heures en millisecondes
+  let baseDelay = totalTimeMs / serversArray.length;
+  let accumulatedDelay = 0;
+
+  // Application du biais pour rendre cela plus humain
+  let randomFactor = 0.9 + Math.random() * 0.2; // variation entre 0.9 et 1.1
+  let delay = baseDelay * randomFactor;
+
+  // setTimeout(() => {
+  //   console.log(`Déllai d'attente de ${delay*1000} s`);
+  // }, delay);
+
+  return new Promise(resolve => setTimeout(()=> resolve(delay), delay))
 };
 
 // Fonction d'éxécution des votes
-async function botByProton(serversArray, delayens) {
+async function botByProton(serversArray, totalDuration) {
   let vote = 0;
   // Itération pour changer de server en suivant la liste
   for (let index = 0; index < serversArray.length; index++) {
@@ -41,13 +53,17 @@ async function botByProton(serversArray, delayens) {
 
       // Exécution du script PowerShell de la requête de vote
       const response = await executeCommand("pwsh -File /home/baptiste/Code/Projets/bot/carab.ps1");
-      if(response.includes("Vous avez déjà voté pour ce sondage") === false) {
+      const goodVote = response.includes("Votez pour vos 3");
+      if(goodVote) {
         vote ++;
       }
       // Déconnexion de ProtonVPN
       await executeCommand("protonvpn-cli d");
 
-      await delay(delayens);
+      await delay(totalDuration, serversArray).then((delayForThisVote) => {
+        // const timeleft = ((totalDuration * 60 * 60 * 1000) - delayForThisVote) / (serversArray.length - index)
+        console.log(`Délai d'attente de ${(delayForThisVote/1000).toFixed(1)}s / Vote ${index+1} sur ${serversArray.length} / Vote ${goodVote}`);
+      });
 
     } catch (error) {
       console.log(error);
