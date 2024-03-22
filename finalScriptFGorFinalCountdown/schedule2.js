@@ -5,14 +5,14 @@ const time = require('./time')
 
 
 let newTimeScheduleParams ="";
-const scheduleParams = {hour:21, minute: 17, second:30};
+const scheduleParams = {hour:7, minute: 50, second:0};
 
 function scheduleFunction() {
   return new Promise((resolve, reject) => {
     
     const job = schedule.scheduleJob(scheduleParams, async function(){
       console .log(`Schedule Job exécutée à ${scheduleParams.hour}:${scheduleParams.minute}:${scheduleParams.second} !`);
-      await botByProton(serversArray.array50, 2)
+      await botByProton(serversArray.array50, 1)
         .then((finish)=> {
           console.log(`Nbr de votes = ${finish} / Job terminé`);
           return time.addSecondsToCurrentTime(60);
